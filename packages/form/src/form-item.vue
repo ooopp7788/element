@@ -205,9 +205,7 @@
         descriptor[this.prop] = rules;
 
         const validator = new AsyncValidator(descriptor);
-        const model = {};
-
-        model[this.prop] = this.fieldValue;
+        const model = this.form.model;
 
         validator.validate(model, { firstFields: true }, (errors, invalidFields) => {
           this.validateState = !errors ? 'success' : 'error';
